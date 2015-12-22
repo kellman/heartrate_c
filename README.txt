@@ -2,7 +2,7 @@ C++ code implementation
 
 18-551 Group 2
 Spring 2015
-Michael Kellman, Bryan Phipps, Sophia Zikanova
+Michael Kellman
 
 This directory contains the c++ code for extracting heart rate from video. The bulk of the code is located in:
 	extractHR.cpp
