@@ -1,0 +1,41 @@
+# Totally uneducated Makefile. 
+CC = gcc
+CFLAGS =  -Wall
+#
+# uncomment the line below for debuging info
+# CFLAGS += -ggdb
+#
+# switch the comments on the lines below if you're using a motorola or other bigendian processor
+# CFLAGS += -DINTEL_END -UMOTOR_END
+# CFLAGS += -UINTEL_END -DMOTOR_END
+#
+OBJS = Matutil.o JnS.o testJnS.o
+HEADERS = Matutil.h JnS.h
+
+all : testJnS 
+
+testJnS : $(OBJS) 
+	$(CC) $(CFLAGS) -lm $(OBJS) -o testJnS
+
+testJnS.o : testJnS.c $(HEADERS) 
+	$(CC) $(CFLAGS) -c testJnS.c
+
+Matutil.o : Matutil.c
+	$(CC) $(CFLAGS) -c Matutil.c
+
+JnS.o : JnS.c Matutil.h Matutil.o 
+	$(CC) $(CFLAGS) -c JnS.c
+
+mex : JnS.c 
+	mex ShibbsR.c ; mex JadeR.c ; mex JointDiag.c
+
+clean :
+	rm -fv $(OBJS) Test *~ *.mex*
+
+
+
+
+
+
+
+

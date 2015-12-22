@@ -1,0 +1,78 @@
+C implementations for JADE, SHIBBS.  
+
+Includes stand alone joint-diagonalization function.
+
+
+Feedback, advice and bug reports are welcome.
+
+version 1.1: Jan. 28, 1999.
+version 1.2: Jun. 05, 2002.
+
+Copyright: JF Cardoso. <cardoso@tsi.enst.fr>
+
+Licensed under the GPL (see the COPYING file).
+
+
+================================================================
+
+
+This directory contains :
+
+ 0_README		This file
+ COPYING		The GPL license
+
+ JnS.c			C implementation of JADE and SHIBBS including
+			code for joint diagonalization
+
+ Gateway.c		These three files provide a Matlab interface
+ JadeR.c		to the C implementations of
+ ShibbsR.c		JADE and SHIBBS
+
+ JointDiag.c		A Matlab interface to the joint-diag C code
+			in JnS.c
+
+ MatlabjadeR.m		Matlab implementation of JADE
+ MatlabshibbsR.m	Matlab implementation of SHIBBS
+
+ Matutil.c		Matrix utilities, no longer useful but...
+
+ testJnS.c 		A short C program for testing Jade and Shibbs
+ testJnS.m 		A short Matalb program for testing Jade and Shibbs
+			and comparing Matalb and C versions
+ testJointDiag.m	A short Matlab program for testing the C version
+			of the joint diagonalization code.
+
+
+ Makefile		limited facility for building things
+
+
+================================================================
+Usage:
+
+o Compile everything necesary by `make all'
+
+o Build the Mex-files by `make mex' or by
+
+	 > mex ShibbsR.c 
+	 > mex JadeR.c
+	 > mex JointDiag.c
+
+o Check code under Matlab by running the various test programs
+  or a more limited check with C using testJnC.c
+
+
+================================================================
+Notes:
+
+o The usage of JADE is documented in the Matlab source
+
+o The C implementations do not do the projection onto the `signal
+  subspace' yet : one cannot only ask for as many `sources as
+  sensors'.
+
+o It is not necessary to have Matlab available to compile and run the
+  C code.  IOW, JADE can be used as a stand alone.  BUT, you may have
+  to comment out the relevant parts in the Make files and elsewhere/
+
+
+

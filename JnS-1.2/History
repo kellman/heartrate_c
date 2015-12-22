@@ -1,0 +1,8 @@
+* 1.1 : Jan. 1999 
+	First release
+
+* 1.2 : June 2002
+	Bug fix: it seems that recent (?) versions mex compiler are
+	confused by one-line comments introduced by //.  The fix is to
+	use the form /* xxxx */ for comments in all files to be compiled
+	by mex.
